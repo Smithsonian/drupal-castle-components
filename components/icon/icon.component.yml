@@ -1,0 +1,30 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Icon
+status: experimental
+description: An SVG icon.
+props:
+  type: object
+  required:
+    - size
+    - pack
+    - name
+  properties:
+    size:
+      type: string
+      title: size
+      enum:
+        - small
+        - medium
+        - large
+      default: medium
+    pack:
+      type: string
+      title: "Icon pack"
+      enum:
+        - tabler
+        - custom
+      default: tabler
+    name:
+      type: string
+      title: "Icon name"
+      examples: ['arrow-left', 'download', 'lock']

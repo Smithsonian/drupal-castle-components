@@ -1,0 +1,26 @@
+@import 'fonts.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  [x-cloak] {
+    @apply hidden;
+  }
+  button {
+    /* @see: https://github.com/tailwindlabs/tailwindcss/discussions/3020 */
+    touch-action: manipulation;
+  }
+}
+
+@layer utilities {
+  .text-primary-content {
+    @apply text-neutral-50;
+  }
+  .text-secondary-content {
+    @apply text-neutral-900;
+  }
+  .text-accent-content {
+    @apply text-neutral-50;
+  }
+}

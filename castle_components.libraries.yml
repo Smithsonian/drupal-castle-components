@@ -1,0 +1,7 @@
+tailwind:
+  css:
+    theme:
+      dist/css/castle.css: { attributes: { fetchpriority: high }, minified: true, preprocess: false }
+scripts:
+  js:
+    dist/js/castle.min.js: { attributes: { defer: true }, preprocess: false }

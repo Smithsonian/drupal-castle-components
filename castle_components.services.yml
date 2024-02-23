@@ -1,0 +1,5 @@
+services:
+  castle_components.twig_extension:
+    class: Drupal\castle_components\CastleTwigExtensions
+    tags:
+      - { name: twig.extension }

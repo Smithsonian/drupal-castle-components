@@ -1,0 +1,23 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Heading
+status: stable
+description: Page section titles.
+group: Elements
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    id:
+      type: string
+      title: id
+      examples: ['contact-form-heading']
+    as:
+      type: string
+      title: as
+      examples: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+slots:
+  content:
+    type: string
+    title: Heading content
+    description: The heading text or other content.

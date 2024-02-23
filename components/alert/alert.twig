@@ -1,0 +1,22 @@
+{% set classes = ['max-w-screen-2xl', 'm-2', 'md:mx-auto', 'p-4', 'rounded-lg'] %}
+{% if type == 'error' %}
+  {% set classes = classes|merge(['bg-red-100', 'border-red-400', 'text-red-900']) %}
+{% elseif type == 'warning' %}
+  {% set classes = classes|merge(['bg-yellow-100', 'border-yellow-400', 'text-yellow-900']) %}
+{% elseif type == 'status' %}
+  {% set classes = classes|merge(['bg-blue-100', 'border-blue-400', 'text-blue-900']) %}
+{% endif %}
+<div x-data x-show="visible" x-transition.opacity data-drupal-messages role="contentinfo" class="{{ classes|join(' ') }}" {{ attributes|without('class') }}>
+  <div class="flex">
+    <div class="ml-3 my-auto flex-1">
+      <div :role="'{{ type }}' === 'error' ? 'alert' : 'complementary'">
+        {% block content %}{% endblock %}
+      </div>
+    </div>
+    {% if dismissible != 'false' %}
+      <div class="ml-auto mr-4 pl-3" @clicked.stop="close()">
+        {# TODO: Add a close icon #}
+      </div>
+    {% endif %}
+  </div>
+</div>

@@ -1,0 +1,17 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Divider
+status: stable
+description: An element to visually separate content or components.
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    size:
+      type: string
+      title: size
+      examples: ['small', 'medium', 'large']
+    label:
+      type: string
+      title: label
+      examples: ['Continue', 'More Information']

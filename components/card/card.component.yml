@@ -1,0 +1,26 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Card
+status: experimental
+description: A flexible content container with options for an end user to take action.
+group: Patterns
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+  # TODO: Add "elevation" prop used to set the shadow depth of the card.
+slots:
+  media:
+    type: string
+    title: Card media
+    description: Image or other media representing the card.
+  header:
+    type: string
+    title: Card header
+  body:
+    type: string
+    title: Card body
+  footer:
+    type: string
+    title: Card footer
+    

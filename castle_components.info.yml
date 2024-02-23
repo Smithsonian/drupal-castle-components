@@ -1,0 +1,10 @@
+name: 'Castle Components'
+type: module
+description: 'Drupal component library using TailwindCSS and AlpineJS.'
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - drupal:sdc
+libraries:
+  - castle_components/scripts
+  - castle_components/tailwind

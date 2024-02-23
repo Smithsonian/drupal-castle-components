@@ -1,0 +1,8 @@
+<div x-data="clipboard()" data-text="{{ text }}" class="inline-flex -mt-1 relative text-tertiary-600">
+  <span x-cloak x-show.transition.origin.top="feedback" class="absolute z-10 top-0 -mt-1 transform -translate-x-1/2 -translate-y-full py-2 px-3 bg-tertiary-700 rounded-sm shadow-sm">
+    <span class="font-medium text-white text-sm nowrap">Copied</span>
+  </span>
+  <button @click="copy()" role="button" aria-label="Copy to clipboard" class="text-black">
+    Copy!
+  </button>
+</div>

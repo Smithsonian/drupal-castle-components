@@ -1,0 +1,12 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Clipboard
+status: experimental
+description: A "copy to clipboard" button.
+group: Elements
+props:
+  type: object
+  properties:
+    text:
+      type: string
+      title: text
+      examples: ['Save this text to your clipboard']

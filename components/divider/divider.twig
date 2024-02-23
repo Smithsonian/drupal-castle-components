@@ -1,0 +1,25 @@
+{% apply spaceless %}
+  {% set classes = ['w-full', 'border-neutral-500'] %}
+  {# Prop: size #}
+    {% if size == 'large' %}
+      {% set classes = classes|merge(['border-t-4']) %}
+    {% elseif size == 'medium' %}
+      {% set classes = classes|merge(['border-t-2']) %}
+    {% elseif size == 'small' %}
+      {% set classes = classes|merge(['border-t']) %}
+    {% else %}
+      {% set classes = classes|merge(['border-t']) %}
+    {% endif %}
+  <div class="w-full relative my-2 md:my-4 py-2 md:py-4">
+    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+      <div class="{{ classes|join(' ') }}"></div>
+    </div>
+    {% if label %}
+      <div class="relative flex justify-center">
+          <span class="px-2 bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-100 text-sm">
+            {{ label }}
+          </span>
+      </div>
+    {% endif %}
+  </div>
+{% endapply %}

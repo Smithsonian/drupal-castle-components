@@ -1,0 +1,22 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Alert
+status: experimental
+description: Alert message.
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    variant:
+      type: string
+      title: variant
+      examples: ['error', 'warning', 'status']
+    dismissible:
+      type: boolean
+      title: dismissible
+slots:
+  content:
+    type: string
+    title: Alert content
+    description: The alert message(s).
+

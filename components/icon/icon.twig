@@ -1,0 +1,14 @@
+{% apply spaceless %}
+  {% set pack = pack ?? 'tabler' %}
+  {% set classes = ['fill-current', 'text-neutral-900', 'dark:text-neutral-200'] %}
+  {% set size = size ?? 'medium' %}
+  {% if size == 'large' %}
+    {% set classes = classes|merge(['w-10', 'h-10', 'md:w-12', 'md:h-12']) %}
+  {% elseif size == 'medium' %}
+    {% set classes = classes|merge(['w-7', 'h-7', 'md:w-8', 'md:h-8']) %}
+  {% elseif size == 'small' %}
+    {% set classes = classes|merge(['w-5', 'h-5', 'md:w-6', 'md:h-6']) %}
+  {% endif %}
+  {% set svg = '@saam_default_theme/components/elements/icon/icons/' ~ pack ~ '/' ~ name ~ '.svg' %}
+  <div class="{{ classes|join(' ') }}" aria-hidden="true">{% include svg %}</div>
+{% endapply %}

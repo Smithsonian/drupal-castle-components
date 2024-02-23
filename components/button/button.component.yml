@@ -1,0 +1,50 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Button
+status: stable
+description: An element to visually separate content or components.
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    type:
+      type: string
+      title: type
+      description: The button type attribute
+      enum:
+        - button
+        - submit
+        - reset
+      default: button
+    size:
+      type: string
+      title: size
+      enum:
+        - small
+        - medium
+        - large
+      default: button
+    label:
+      type: string
+      title: label
+      examples: ['Read More', 'Submit']
+    variant:
+      type: string
+      title: variant
+      enum:
+        - primary
+        - secondary
+        - accent
+        - transparent
+      default: primary
+    utilities:
+      type: array
+      title: Utility classes
+      description: Additional utility classes to add (or override) on the button.
+      items:
+        type: string
+slots:
+  content:
+    type: string
+    title: Button content
+    description: The button text or other content.

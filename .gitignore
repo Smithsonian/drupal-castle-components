@@ -1,0 +1,13 @@
+# Ignore the node modules folder (created by 'npm install').
+node_modules
+
+# Ignore .map files
+*.css.map
+*.js.map
+css/map
+
+# Ignore Mac files
+.DS_Store
+
+# Ignore npm debugs
+npm-debug.log

@@ -1,0 +1,46 @@
+{
+  "name": "castle_components",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Drupal component library using TailwindCSS and AlpineJS",
+  "author": "Eric Pugh",
+  "email": "pughe@si.edu",
+  "homepage": "https://www.github.com/Smithsonian/castle_components",
+  "keywords": [
+    "drupal",
+    "alpinejs",
+    "components",
+    "tailwindcss"
+  ],
+  "main": "src/js/castle.js",
+  "type": "module",
+  "scripts": {
+    "dev": "rollup -c rollup.config.js --watch",
+    "build": "rollup -c rollup.config.js"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "firefox esr",
+    "ie > 11",
+    "iOS > 9"
+  ],
+  "devDependencies": {
+    "@alpinejs/collapse": "^3.13.5",
+    "@alpinejs/focus": "^3.13.5",
+    "@alpinejs/intersect": "^3.13.5",
+    "@alpinejs/persist": "^3.13.5",
+    "@alpinejs/ui": "^3.13.5-beta.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@tailwindcss/typography": "^0.5.10",
+    "alpinejs": "^3.13.5",
+    "autoprefixer": "^10.4.17",
+    "cssnano": "^6.0.3",
+    "htmx.org": "^1.9.10",
+    "postcss": "^8.4.35",
+    "postcss-import": "^16.0.1",
+    "rollup": "^4.10.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tailwindcss": "^3.4.1"
+  }
+}
