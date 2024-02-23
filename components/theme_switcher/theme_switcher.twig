@@ -18,10 +18,10 @@
         aria-hidden="true"
       >
         <span x-show="$store.theme.mode !== 'dark'">
-          {{ include('saam_default_theme:icon', { name: 'sun', size: 'small' }) }}
+          {{ include('castle_components:icon', { name: 'sun', size: 'small' }) }}
         </span>
         <span x-show="$store.theme.mode === 'dark'">
-          {{ include('saam_default_theme:icon', { name: 'moon', size: 'small' }) }}
+          {{ include('castle_components:icon', { name: 'moon', size: 'small' }) }}
         </span>
       </span>
     </button>
