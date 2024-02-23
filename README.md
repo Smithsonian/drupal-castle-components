@@ -36,7 +36,6 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   content: [
     '../../../modules/contrib/castle_components/components/**/*.twig',
-    './components/**/*.twig',
     './templates/**/*.twig',
   ],
   darkMode: 'selector',
@@ -59,17 +58,17 @@ module.exports = {
 Once configured you can use components in your Drupal theme using Twig [embed](https://twig.symfony.com/doc/3.x/tags/embed.html).
 
 ```twig
-  {% embed 'castle_components:button' with { size: 'large' } only %}
-    {% block content %}
-      This is a Castle button
-    {% endblock %}
-  {% endembed %}
+{% embed 'castle_components:button' with { size: 'large' } only %}
+  {% block content %}
+    This is a Castle button
+  {% endblock %}
+{% endembed %}
 ```
 
 or Twig [include](https://twig.symfony.com/doc/3.x/tags/include.html)
 
 ```twig
-  {{ include ('castle_components:icon', { 'name': 'download' } ) }}
+{{ include ('castle_components:icon', { 'name': 'download' } ) }}
 ```
 
 ## VSCode
