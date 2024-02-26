@@ -1,0 +1,55 @@
+{
+	// Place your castle-components workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"castle_components:alert": {
+		"scope": "twig",
+		"prefix": "alert",
+		"body": [
+			"{% embed 'castle_components:alert' with {",
+			"		variant: 'success',",
+			"		aria_label: 'Success message',",
+			"		dismissable: true",
+			"	}", 
+			"%}",
+			"	{% block content %}",
+			"			<p>Success! It worked.</p>",
+			"	{% endblock content %}",
+			"{% endembed %}",
+			"$2"
+		],
+	},
+	"castle_components:heading": {
+		"scope": "twig",
+		"prefix": "heading",
+		"body": [
+			"{% embed 'castle_components:heading' with { attributes: title_attributes, as: 'h1' } %}",
+			"	{% block content %}",
+			"		This is a heading",
+			"	{% endblock content %}",
+			"{% endembed %}",
+			"$2"
+		],
+	},
+	"castle_components:<strong>icon</strong>": {
+		"scope": "twig",
+		"prefix": "icon",
+		"body": [
+			"{{ include ('castle_components:icon', { 'name': 'download', size: 'large' }, with_context=false ) }}",
+			"$2"
+		],
+	},
+}

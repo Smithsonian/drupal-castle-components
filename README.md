@@ -88,8 +88,8 @@ You'll want to add the following style to you're HTML head to prevent unstyled c
 </style>
 ```
 
-## VSCode
+## Visual Studio Code
 
-see: https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets
+For autocomplete helpers copy the `.vscode/castle-components.code-snippets` Snippets file from the module directory into your VSCode project root. More information about [creating your own snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets).
 
 ## Development

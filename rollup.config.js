@@ -40,7 +40,7 @@ export default [
       resolve(),
     ],
     watch: {
-      include: ['src/js/**', 'components/**'],
+      include: ['js/**', 'components/**'],
       exclude: 'node_modules/**'
     }
   }

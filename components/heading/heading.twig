@@ -4,7 +4,7 @@
     {% set attributes = attributes.setAttribute('id', id) %}
   {% endif %}
   {% set tag = 'div' %}
-  {% if as and as in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] %}
+  {% if as and as|lower in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] %}
     {% set tag = as %}
   {% endif %}
   {# TODO: Add sizes #}

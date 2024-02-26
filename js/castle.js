@@ -10,10 +10,14 @@ import Alpine from 'alpinejs'
 Alpine.plugin([ui, collapse, focus, intersect, persist])
 
 import clipboard from '../components/clipboard/component'
+import dismissable from './functions/dismissable'
 import themeSwitcher from '../components/theme_switcher/component'
 document.addEventListener('alpine:init', () => {
+  // Components
   Alpine.data('clipboard', clipboard)
   Alpine.data('themeSwitcher', themeSwitcher)
+  // Helper functions
+  Alpine.data('dismissable', dismissable)
   // Stores
   Alpine.store('theme', {
     mode: Alpine.$persist(''),

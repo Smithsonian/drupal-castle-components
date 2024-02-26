@@ -11,7 +11,10 @@ props:
       type: string
       title: variant
       examples: ['error', 'warning', 'status']
-    dismissible:
+    aria_label:
+      type: string
+      title: ARIA Label
+    dismissable:
       type: boolean
       title: dismissible
 slots:
@@ -19,4 +22,6 @@ slots:
     type: string
     title: Alert content
     description: The alert message(s).
-
+libraryOverrides:
+  dependencies:
+    - castle_components/scripts
