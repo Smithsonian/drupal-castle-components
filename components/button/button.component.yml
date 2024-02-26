@@ -23,7 +23,7 @@ props:
         - small
         - medium
         - large
-      default: button
+      default: medium
     label:
       type: string
       title: label
@@ -40,7 +40,7 @@ props:
     utilities:
       type: array
       title: Utility classes
-      description: Additional utility classes to add (or override) on the button.
+      description: Additional utility classes to add (or override).
       items:
         type: string
 slots:

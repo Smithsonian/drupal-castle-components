@@ -1,0 +1,52 @@
+{% apply spaceless %}
+  {#
+    Prop: xs
+    Number of columns at x-small breakpoint
+  #}
+  {% set xs = xs ?: 1 %}
+  {# xs:grid-cols-1 xs:grid-cols-2 xs:grid-cols-3 xs:grid-cols-4 xs:grid-cols-5 xs:grid-cols-6 #}
+  {#
+    Prop: sm
+    Number of columns at small breakpoint
+  #}
+  {% set sm = sm ?: 1 %}
+  {# sm:grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 sm:grid-cols-4 sm:grid-cols-5 sm:grid-cols-6 #}
+  {#
+    Prop: md
+    Number of columns at medium breakpoint
+  #}
+  {% set md = md ?: 2 %}
+  {# md:grid-cols-1 md:grid-cols-2 md:grid-cols-3 md:grid-cols-4 md:grid-cols-5 md:grid-cols-6 #}
+  {#
+    Prop: lg
+    Number of columns at large breakpoint
+  #}
+  {% set lg = lg ?: 4 %}
+  {# lg:grid-cols-1 lg:grid-cols-2 lg:grid-cols-3 lg:grid-cols-4 lg:grid-cols-5 lg:grid-cols-6 #}
+  {#
+    Prop: xl
+    Number of columns at x-large breakpoint
+  #}
+  {% set xl = xl ?: 6 %}
+  {# xl:grid-cols-1 xl:grid-cols-2 xl:grid-cols-3 xl:grid-cols-4 xl:grid-cols-5 xl:grid-cols-6 #}
+  {% set classes = [
+      'grid grid-cols-' ~ xs,
+      'sm:grid-cols-' ~ sm,
+      'md:grid-cols-' ~ md,
+      'lg:grid-cols-' ~ lg,
+      'xl:grid-cols-' ~ xl,
+      'gap-x-2', 
+      'md:gap-x-4', 
+      'lg:gap-x-6', 
+      'gap-y-8', 
+      'md:gap-y-4', 
+      'lg:gap-y-6' 
+    ]
+  %}
+  {% if utilities is defined %}
+    {% set classes = castle_merge_utility_classes(utilities, classes) %}
+  {% endif %}
+  <div {{ attributes.addClass(classes) }}>
+    {% block content %}{% endblock content %}
+  </div>
+{% endapply %}

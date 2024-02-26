@@ -4,25 +4,25 @@
   class="flex items-center justify-center"
   x-id="['theme-switcher-label']"
 >
-    <label :id="$id('theme-switcher-label')" class="sr-only" >Switch themes</label>
-    <button
-      @click="toggle()"
-      type="button"
-      role="switch"
-      :aria-labelledby="$id('theme-switcher-label')"
-      class="relative ml-4 inline-flex w-14 rounded-full py-1 bg-neutral-400 dark:bg-neutral-700 transition"
+  <label :id="$id('theme-switcher-label')" class="sr-only" >Switch themes</label>
+  <button
+    @click="toggle()"
+    type="button"
+    role="switch"
+    :aria-labelledby="$id('theme-switcher-label')"
+    class="relative ml-4 inline-flex w-14 rounded-full py-1 bg-neutral-400 dark:bg-neutral-700 transition"
+  >
+    <span
+      :class="$store.theme.mode === 'dark' ? 'translate-x-7' : 'translate-x-1'"
+      class="bg-neutral-50 dark:bg-neutral-900 h-6 w-6 rounded-full transition shadow-md"
+      aria-hidden="true"
     >
-      <span
-        :class="$store.theme.mode === 'dark' ? 'translate-x-7' : 'translate-x-1'"
-        class="bg-white dark:bg-neutral-900 h-6 w-6 rounded-full transition shadow-md"
-        aria-hidden="true"
-      >
-        <span x-show="$store.theme.mode !== 'dark'">
-          {{ include('castle_components:icon', { name: 'sun', size: 'small' }) }}
-        </span>
-        <span x-show="$store.theme.mode === 'dark'">
-          {{ include('castle_components:icon', { name: 'moon', size: 'small' }) }}
-        </span>
+      <span x-show="$store.theme.mode !== 'dark'">
+        {{ include('castle_components:icon', { name: 'sun', size: 'small' }) }}
       </span>
-    </button>
+      <span x-show="$store.theme.mode === 'dark'">
+        {{ include('castle_components:icon', { name: 'moon', size: 'small' }) }}
+      </span>
+    </span>
+  </button>
 </div>

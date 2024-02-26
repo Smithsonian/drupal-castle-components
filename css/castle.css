@@ -21,6 +21,12 @@
     @apply text-neutral-900;
   }
   .text-accent-content {
-    @apply text-neutral-50;
+    @apply text-neutral-900;
+  }
+  /**
+  * Text spacing
+  */
+  [data-component-id="castle_components:text"] p {
+    @apply my-1.5 md:my-2 lg:my-3 xl:my-3.5;
   }
 }

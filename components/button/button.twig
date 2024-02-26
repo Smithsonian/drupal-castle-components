@@ -12,7 +12,7 @@
   {% if variant == 'transparent' %}
     {% set classes = classes|merge(['shadow-none hover:shadow-none bg-transparent']) %}
   {% elseif variant == 'accent' %}
-    {% set classes = classes|merge(['bg-accent border-accent-600 hover:bg-accent-600']) %}
+    {% set classes = classes|merge(['bg-accent-500 border-accent-600 hover:bg-accent-600']) %}
   {% elseif variant == 'secondary' %}
     {% set classes = classes|merge(['bg-secondary-500 border-secondary-300 hover:bg-secondary-300']) %}
   {% else %}

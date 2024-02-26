@@ -1,0 +1,17 @@
+{% apply spaceless %}
+{% set classes = ['prose', 'dark:prose-invert', 'prose-slate'] %}
+  {% if size == 'small' %}
+    {% set classes = classes|merge(['prose-base']) %}
+  {% elseif size == 'large' %}
+    {% set classes = classes|merge(['prose-lg', 'lg:prose-xl']) %}
+  {% else %}
+    {% set classes = classes|merge(['md:prose-lg']) %}
+  {% endif %}
+  {% if utilities is defined %}
+    {% set classes = castle_merge_utility_classes(utilities, classes) %}
+  {% endif %}
+  <div {{ attributes.addClass(classes) }}>
+    {% block content %}{% endblock content %}
+  </div>
+{% endapply %}
+ 

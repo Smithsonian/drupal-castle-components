@@ -71,6 +71,20 @@ or Twig [include](https://twig.symfony.com/doc/3.x/tags/include.html)
 {{ include ('castle_components:icon', { 'name': 'download' } ) }}
 ```
 
+## AlpineJS
+
+Many of the Castle components use AlpineJS for interactivity, transitions, and event handling.
+
+You'll want to add the following style to you're HTML head to prevent unstyled components appearing before Alpine is initialized.
+
+```html
+<style>
+  [x-cloak] {
+    display: none !important;
+  }
+</style>
+```
+
 ## VSCode
 
 see: https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets

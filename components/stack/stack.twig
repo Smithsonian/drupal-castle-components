@@ -1,0 +1,14 @@
+{% apply spaceless %}
+  {% set classes = ['grid', 'grid-cols-1', 'grid-flow-row'] %}
+  {% if divide %}
+    {% set classes = classes|merge(['divide-y', 'divide-neutral-500', 'dark:divide-neurtal-200', '[&>*]:py-2', 'md:[&>*]:py-4']) %}
+  {% else %}
+    {% set classes = classes|merge(['gap-y-2', 'md:gap-y-4']) %}
+  {% endif %}
+  {% if utilities is defined %}
+    {% set classes = castle_merge_utility_classes(utilities, classes) %}
+  {% endif %}
+  <div {{ attributes.addClass(classes) }}>
+    {% block content %}{% endblock content %}
+  </div>
+{% endapply %}

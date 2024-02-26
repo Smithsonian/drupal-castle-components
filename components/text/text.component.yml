@@ -1,0 +1,29 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Text
+status: stable
+group: Elements
+description: A simple text block components.
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    utilities:
+      type: array
+      title: Utility classes
+      description: "Additional utility classes to add (or override)."
+      items:
+        type: string
+    size:
+      type: string
+      title: size
+      description: "The text font size."
+      enum:
+        - small
+        - medium
+        - large
+      default: medium
+slots:
+  content:
+    type: string
+    title: Stack child elements
