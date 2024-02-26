@@ -2,6 +2,9 @@
 
 Drupal component library using TailwindCSS and AlpineJS
 
+> [!WARNING]  
+> This module is under active development, and is not ready to be used in production.
+
 ## Install
 
 Install as any Drupal module. It's recommended to use composer.
@@ -68,7 +71,7 @@ Once configured you can use components in your Drupal theme using Twig [embed](h
 or Twig [include](https://twig.symfony.com/doc/3.x/tags/include.html)
 
 ```twig
-{{ include ('castle_components:icon', { 'name': 'download' } ) }}
+{{ include ('castle_components:icon', { 'name': 'download' }, with_context=false ) }}
 ```
 
 ## AlpineJS
