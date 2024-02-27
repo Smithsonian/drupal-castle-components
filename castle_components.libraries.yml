@@ -5,3 +5,5 @@ tailwind:
 scripts:
   js:
     dist/js/castle.min.js: { attributes: { defer: true }, preprocess: false }
+  dependencies:
+    - sdc/all

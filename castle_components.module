@@ -4,3 +4,9 @@
  * @file
  * Primary module hooks for castle_components module.
  */
+
+
+ /**
+ * Implements hook_library_info_build().
+ */
+function castle_components_library_info_alter(&$libraries, $extension) {}

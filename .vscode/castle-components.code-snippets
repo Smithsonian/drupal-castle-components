@@ -15,20 +15,11 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"castle_components:alert": {
+	"castle_components:clipboard": {
 		"scope": "twig",
-		"prefix": "alert",
+		"prefix": "clipboard",
 		"body": [
-			"{% embed 'castle_components:alert' with {",
-			"		variant: 'success',",
-			"		aria_label: 'Success message',",
-			"		dismissable: true",
-			"	}", 
-			"%}",
-			"	{% block content %}",
-			"			<p>Success! It worked.</p>",
-			"	{% endblock content %}",
-			"{% endembed %}",
+			"{{ include ('castle_components:clipboard', { 'text': 'This is copied text!' }, with_context=false ) }}",
 			"$2"
 		],
 	},
@@ -44,11 +35,28 @@
 			"$2"
 		],
 	},
-	"castle_components:<strong>icon</strong>": {
+	"castle_components:icon": {
 		"scope": "twig",
 		"prefix": "icon",
 		"body": [
 			"{{ include ('castle_components:icon', { 'name': 'download', size: 'large' }, with_context=false ) }}",
+			"$2"
+		],
+	},
+	"castle_components:alert": {
+		"scope": "twig",
+		"prefix": "status_message",
+		"body": [
+			"{% embed 'castle_components:status_message' with {",
+			"		variant: 'success',",
+			"		aria_label: 'Success message',",
+			"		dismissable: true",
+			"	}", 
+			"%}",
+			"	{% block content %}",
+			"			<p>Success! It worked.</p>",
+			"	{% endblock content %}",
+			"{% endembed %}",
 			"$2"
 		],
 	},

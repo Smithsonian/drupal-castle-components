@@ -1,7 +1,7 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
-name: Alert
+name: Status Message
 status: experimental
-description: Alert message.
+description: Status message informs users about important events.
 props:
   type: object
   properties:
@@ -22,6 +22,3 @@ slots:
     type: string
     title: Alert content
     description: The alert message(s).
-libraryOverrides:
-  dependencies:
-    - castle_components/scripts
