@@ -44,7 +44,7 @@ props:
       items:
         type: string
 slots:
-  content:
+  default:
     type: string
-    title: Button content
+    title: Button default content
     description: The button text or other content.

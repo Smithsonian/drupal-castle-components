@@ -1,0 +1,21 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Hero
+status: experimental
+description: A container element displaying a large box or image with a title and description.
+group: Patterns
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    utilities:
+      type: array
+      title: Utility classes
+      description: Additional utility classes to add (or override).
+      items:
+        type: string
+slots:
+  default:
+    type: string
+    title: The default hero content
+    

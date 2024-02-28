@@ -28,9 +28,9 @@
 		"prefix": "heading",
 		"body": [
 			"{% embed 'castle_components:heading' with { attributes: title_attributes, as: 'h1' } %}",
-			"	{% block content %}",
+			"	{% block default %}",
 			"		This is a heading",
-			"	{% endblock content %}",
+			"	{% endblock default %}",
 			"{% endembed %}",
 			"$2"
 		],
@@ -53,9 +53,9 @@
 			"		dismissable: true",
 			"	}", 
 			"%}",
-			"	{% block content %}",
+			"	{% block default %}",
 			"			<p>Success! It worked.</p>",
-			"	{% endblock content %}",
+			"	{% endblock default %}",
 			"{% endembed %}",
 			"$2"
 		],

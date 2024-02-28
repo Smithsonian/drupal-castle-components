@@ -1,0 +1,38 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Navbar
+status: experimental
+description: A container element for horizontal navigation.
+group: Layout
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    sticky: 
+      type: boolean
+      title: Sticky
+      default: false
+      description: Whether the navbar should be positioned sticky.
+    shadow:
+      type: string
+      title: Shadow
+      default: 'none'
+      description: The box shadow size for the element.
+      enum: ['sm', 'md', 'lg','xl', '2xl', 'inner', 'none']
+    utilities:
+      type: array
+      title: Utility classes
+      description: Additional utility classes to add (or override).
+      items:
+        type: string
+slots:
+  left:
+    type: string
+    title: Left content
+  center:
+    type: string
+    title: Center content
+  right:
+    type: string
+    title: Right body
+    

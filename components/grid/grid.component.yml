@@ -45,6 +45,6 @@ props:
       items:
         type: string
 slots:
-  content:
+  default:
     type: string
     title: Grid child elements

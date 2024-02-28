@@ -19,6 +19,6 @@ props:
       title: divide
       description: "Add a visual divider between stacked elements."
 slots:
-  content:
+  default:
     type: string
     title: Stack child elements

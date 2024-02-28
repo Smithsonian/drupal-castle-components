@@ -18,7 +18,7 @@ props:
       type: boolean
       title: dismissible
 slots:
-  content:
+  default:
     type: string
-    title: Alert content
+    title: Alert default content
     description: The alert message(s).

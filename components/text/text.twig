@@ -11,7 +11,7 @@
     {% set classes = castle_merge_utility_classes(utilities, classes) %}
   {% endif %}
   <div {{ attributes.addClass(classes) }}>
-    {% block content %}{% endblock content %}
+    {% block default %}{% endblock default %}
   </div>
 {% endapply %}
  

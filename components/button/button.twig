@@ -33,9 +33,9 @@
   {% endif %}
   <button
     {{ attributes.addClass(classes) }}
-    {% if type != 'submit' %}x-data @click.prevent="$dispatch('castle-button-clicked')" @keydown.prevent="$dispatch('castle-button-clicked')" {% endif%}
+    {% if event %}x-data @click.prevent="$dispatch('{{ event }}')" @keydown.prevent="$dispatch('{{ event }}')" {% endif%}
     {% if type %}type="{{ type }}" {% endif %}
   >
-    {% block content %}{% endblock content %}
+    {% block default %}{% endblock default %}
   </button>
 {% endapply %}

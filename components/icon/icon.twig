@@ -9,6 +9,9 @@
   {% elseif size == 'small' %}
     {% set classes = classes|merge(['w-5', 'h-5', 'md:w-6', 'md:h-6']) %}
   {% endif %}
+  {% if utilities is defined %}
+    {% set classes = castle_merge_utility_classes(utilities, classes) %}
+  {% endif %}
   {% set svg = '@castle_components/components/icon/icons/' ~ pack ~ '/' ~ name ~ '.svg' %}
   <div class="{{ classes|join(' ') }}" aria-hidden="true">{% include svg %}</div>
 {% endapply %}

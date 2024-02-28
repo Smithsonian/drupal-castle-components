@@ -1,28 +1,34 @@
-<div
-  x-cloak
-  x-data="themeSwitcher()"
-  class="flex items-center justify-center"
-  x-id="['theme-switcher-label']"
->
-  <label :id="$id('theme-switcher-label')" class="sr-only" >Switch themes</label>
-  <button
-    @click="toggle()"
-    type="button"
-    role="switch"
-    :aria-labelledby="$id('theme-switcher-label')"
-    class="relative ml-4 inline-flex w-14 rounded-full py-1 bg-neutral-400 dark:bg-neutral-700 transition"
+{% apply spaceless %}
+  {% set classes = ['flex', 'items-center', 'justify-center'] %}
+  {% if utilities is defined %}
+    {% set classes = castle_merge_utility_classes(utilities, classes) %}
+  {% endif %}
+  <div
+    x-cloak
+    x-data="themeSwitcher()"
+    class="{{ classes|join(' ') }}"
+    x-id="['theme-switcher-label']"
   >
-    <span
-      :class="$store.theme.mode === 'dark' ? 'translate-x-7' : 'translate-x-1'"
-      class="bg-neutral-50 dark:bg-neutral-900 text-neutral-950 dark:text-neutral-50 h-6 w-6 rounded-full transition shadow-md"
-      aria-hidden="true"
+    <label :id="$id('theme-switcher-label')" class="sr-only" >Switch themes</label>
+    <button
+      @click="toggle()"
+      type="button"
+      role="switch"
+      :aria-labelledby="$id('theme-switcher-label')"
+      class="relative ml-4 inline-flex w-14 rounded-full py-1 bg-neutral-400 dark:bg-neutral-700 transition"
     >
-      <span x-show="$store.theme.mode !== 'dark'">
-        {{ include('castle_components:icon', { name: 'sun', size: 'small' }) }}
+      <span
+        :class="$store.theme.mode === 'dark' ? 'translate-x-7' : 'translate-x-1'"
+        class="bg-neutral-50 dark:bg-neutral-900 text-neutral-950 dark:text-neutral-50 h-6 w-6 rounded-full transition shadow-md"
+        aria-hidden="true"
+      >
+        <span x-show="$store.theme.mode !== 'dark'">
+          {{ include('castle_components:icon', { name: 'sun' }) }}
+        </span>
+        <span x-show="$store.theme.mode === 'dark'">
+          {{ include('castle_components:icon', { name: 'moon' }) }}
+        </span>
       </span>
-      <span x-show="$store.theme.mode === 'dark'">
-        {{ include('castle_components:icon', { name: 'moon', size: 'small' }) }}
-      </span>
-    </span>
-  </button>
-</div>
+    </button>
+  </div>
+{% endapply %}

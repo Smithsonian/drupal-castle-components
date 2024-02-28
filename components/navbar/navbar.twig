@@ -1,0 +1,27 @@
+  
+{% apply spaceless %}
+  <div class="{% if sticky %}sticky top-0 {% endif %}z-40">
+  {% set classes = [
+      'relative', 
+      'w-full', 
+      'bg-neutral-50', 
+      'dark:bg-neutral-900', 
+      'border-b', 
+      'dark:border-neutral-100',
+    ] 
+  %}
+  {% if utilities is defined %}
+    {% set classes = castle_merge_utility_classes(utilities, classes) %}
+  {% endif %}
+  {% if shadow %}
+    {% set classes = classes|merge(['shadow-' ~ shadow|lower ]) %}
+  {% endif %}
+  <div {{ attributes.addClass(classes) }} role="banner">
+    <div class="flex justify-between items-center h-18 lg:h-20">
+      {% block left %}{% endblock left %}
+      {% block center %}{% endblock center %}
+      {% block right %}{% endblock right %}
+    </div>
+  </div>
+</div>
+{% endapply %}

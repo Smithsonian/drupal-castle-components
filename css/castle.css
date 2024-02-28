@@ -1,4 +1,3 @@
-@import 'fonts.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,9 +6,14 @@
   [x-cloak] {
     @apply hidden;
   }
-  button {
-    /* @see: https://github.com/tailwindlabs/tailwindcss/discussions/3020 */
-    touch-action: manipulation;
+}
+
+@layer components {
+  /**
+  * Text spacing
+  */
+  [data-component-id="castle_components:text"] p {
+    @apply my-1.5 md:my-2 lg:my-3 xl:my-3.5;
   }
 }
 
@@ -23,10 +27,28 @@
   .text-accent-content {
     @apply text-neutral-900;
   }
-  /**
-  * Text spacing
-  */
-  [data-component-id="castle_components:text"] p {
-    @apply my-1.5 md:my-2 lg:my-3 xl:my-3.5;
+  .castle-outer-gutter {
+    @apply mx-4 md:mx-6 lg:mx-6 2xl:mx-14;
+  }
+  .castle-full-bleed {
+    @apply container;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+    position: relative;
+    right: 50%;
+    width: 100vw;
+  }
+  .castle-z-max {
+    z-index: 99999;
+  }
+  .castle-touch-action {
+    /* @see: https://github.com/tailwindlabs/tailwindcss/discussions/3020 */
+    touch-action: manipulation;
+  }
+  .castle-gradient-primary {
+    @apply bg-gradient-to-r from-primary-700 via-primary-300 to-neutral-50;
+    @apply dark:from-primary-800 dark:via-primary-600 dark:to-neutral-950;
   }
 }

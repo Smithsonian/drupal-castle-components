@@ -24,6 +24,6 @@ props:
         - large
       default: medium
 slots:
-  content:
+  default:
     type: string
     title: Stack child elements
