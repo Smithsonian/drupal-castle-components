@@ -43,6 +43,7 @@ props:
       description: Additional utility classes to add (or override).
       items:
         type: string
+      examples: [['bg-accent-500', 'text-neutral-100']]
 slots:
   default:
     type: string
