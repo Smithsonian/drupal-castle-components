@@ -1,0 +1,50 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Grid
+status: stable
+group: Layout
+description: A layout element to align content in a grid.
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    xs:
+      type: integer
+      title: Extra small breakpoint columns
+      description: "Number of grid columns at the xs breakpoint."
+      enum: [1,2,3,4,5,6,7,8]
+      default: 1
+    sm:
+      type: integer
+      title: Small breakpoint columns
+      description: "Number of grid columns at the sm breakpoint."
+      enum: [1,2,3,4,5,6,7,8]
+      default: 1
+    md:
+      type: integer
+      title: Medium breakpoint columns
+      description: "Number of grid columns at the md breakpoint."
+      enum: [1,2,3,4,5,6,7,8]
+      default: 2
+    lg:
+      type: integer
+      title: Large breakpoint columns
+      description: "Number of grid columns at the lg breakpoint."
+      enum: [1,2,3,4,5,6,7,8]
+      default: 4
+    xl:
+      type: integer
+      title: Extra large breakpoint columns
+      description: "Number of grid columns at the xl breakpoint."
+      enum: [1,2,3,4,5,6,7,8]
+      default: 6
+    utilities:
+      type: array
+      title: Utility classes
+      description: "Additional utility classes to add (or override)."
+      items:
+        type: string
+slots:
+  default:
+    type: string
+    title: Grid child elements

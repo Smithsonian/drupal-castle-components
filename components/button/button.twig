@@ -5,6 +5,7 @@
     'border', 'border-transparent',
     'rounded-md',
     'no-underline', 'hover:no-underline',
+    'cursor-pointer',
     'text-center',
     'focus:outline-none', 'focus:ring-2', 'focus:ring-offset-2', 'focus:ring-accent'
   ] %}
@@ -12,7 +13,7 @@
   {% if variant == 'transparent' %}
     {% set classes = classes|merge(['shadow-none hover:shadow-none bg-transparent']) %}
   {% elseif variant == 'accent' %}
-    {% set classes = classes|merge(['bg-accent border-accent-600 hover:bg-accent-600']) %}
+    {% set classes = classes|merge(['bg-accent-500 border-accent-600 hover:bg-accent-600']) %}
   {% elseif variant == 'secondary' %}
     {% set classes = classes|merge(['bg-secondary-500 border-secondary-300 hover:bg-secondary-300']) %}
   {% else %}
@@ -26,16 +27,21 @@
   {% else %}
     {% set classes = classes|merge(['text-lg']) %}
   {% endif %}
-  {# TODO: Add "href" prop and set anchor tag if href is supplied #}
-  {# TODO: merge "type" prop with "attributes" #}
+  {% if type %}
+    {% set attributes = attributes.setAttribute('type', type) %}
+  {% endif %}
   {% if utilities is defined %}
     {% set classes = castle_merge_utility_classes(utilities, classes) %}
   {% endif %}
-  <button
+  {% set as = 'button' %}
+  {% if href is defined %}
+    {% set as = 'a' %}
+    {% set attributes = attributes.setAttribute('href', href) %}
+  {% endif %}
+  <{{ as }}
     {{ attributes.addClass(classes) }}
-    {% if type != 'submit' %}x-data @click.prevent="$dispatch('castle-button-clicked')" @keydown.prevent="$dispatch('castle-button-clicked')" {% endif%}
-    {% if type %}type="{{ type }}" {% endif %}
+    {% if event %}x-data @click.prevent="$dispatch('{{ event }}')" @keydown.prevent="$dispatch('{{ event }}')"{% endif%}
   >
-    {% block content %}{% endblock content %}
-  </button>
+    {% block default %}{% endblock default %}
+  </{{ as }}>
 {% endapply %}

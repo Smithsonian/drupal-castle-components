@@ -1,9 +1,14 @@
-<div
-  x-cloak
-  x-data="themeSwitcher()"
-  class="flex items-center justify-center"
-  x-id="['theme-switcher-label']"
->
+{% apply spaceless %}
+  {% set classes = ['flex', 'items-center', 'justify-center'] %}
+  {% if utilities is defined %}
+    {% set classes = castle_merge_utility_classes(utilities, classes) %}
+  {% endif %}
+  <div
+    x-cloak
+    x-data="themeSwitcher()"
+    class="{{ classes|join(' ') }}"
+    x-id="['theme-switcher-label']"
+  >
     <label :id="$id('theme-switcher-label')" class="sr-only" >Switch themes</label>
     <button
       @click="toggle()"
@@ -14,15 +19,16 @@
     >
       <span
         :class="$store.theme.mode === 'dark' ? 'translate-x-7' : 'translate-x-1'"
-        class="bg-white dark:bg-neutral-900 h-6 w-6 rounded-full transition shadow-md"
+        class="bg-neutral-50 dark:bg-neutral-900 text-neutral-950 dark:text-neutral-50 h-6 w-6 rounded-full transition shadow-md"
         aria-hidden="true"
       >
         <span x-show="$store.theme.mode !== 'dark'">
-          {{ include('castle_components:icon', { name: 'sun', size: 'small' }) }}
+          {{ include('castle_components:icon', { name: 'sun' }) }}
         </span>
         <span x-show="$store.theme.mode === 'dark'">
-          {{ include('castle_components:icon', { name: 'moon', size: 'small' }) }}
+          {{ include('castle_components:icon', { name: 'moon' }) }}
         </span>
       </span>
     </button>
-</div>
+  </div>
+{% endapply %}

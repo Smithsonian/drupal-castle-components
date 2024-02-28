@@ -1,0 +1,24 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Stack
+status: stable
+group: Layout
+description: A layout element to vertically separate and space content or components.
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    utilities:
+      type: array
+      title: Utility classes
+      description: "Additional utility classes to add (or override)."
+      items:
+        type: string
+    divide:
+      type: boolean
+      title: divide
+      description: "Add a visual divider between stacked elements."
+slots:
+  default:
+    type: string
+    title: Stack child elements

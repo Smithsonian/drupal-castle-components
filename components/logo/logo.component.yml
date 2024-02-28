@@ -1,0 +1,16 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Logo
+status: experimental
+description: Smithsonian logo.
+group: Elements
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    utilities:
+      type: array
+      title: Utility classes
+      description: "Additional utility classes to add (or override)."
+      items:
+        type: string

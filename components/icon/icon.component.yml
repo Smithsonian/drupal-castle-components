@@ -28,3 +28,13 @@ props:
       type: string
       title: "Icon name"
       examples: ['arrow-left', 'download', 'lock']
+    utilities:
+      type: array
+      title: Utility classes
+      description: Additional utility classes to add (or override).
+      items:
+        type: string
+    event:
+      type: string
+      title: "Event name"
+      description: "A \"kebab case\" name of the event to dispatch when the button is clicked."

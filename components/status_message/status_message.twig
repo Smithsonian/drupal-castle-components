@@ -1,0 +1,26 @@
+{% set classes = ['max-w-screen-2xl', 'm-2', 'md:mx-auto', 'p-4', 'rounded-lg', 'shadow-lg'] %}
+{% if type == 'error' %}
+  {% set classes = classes|merge(['bg-error', 'text-neutral-50']) %}
+{% elseif type == 'warning' %}
+  {% set classes = classes|merge(['bg-warning', 'text-neutral-950']) %}
+{% elseif type == 'status' %}
+  {% set classes = classes|merge(['bg-success', 'text-neutral-50']) %}
+{% endif %}
+{% if aria_label %}
+  {% set attributes = attributes.setAttribute('aria-label', aria_label) %}
+{% endif %}
+{% set attributes = attributes.setAttribute('role', 'contentinfo') %}
+<div {% if dismissable %}x-data="statusMessage()" x-show="visible" x-transition.opacity {% endif %}data-drupal-messages class="{{ classes|join(' ') }}" {{ attributes|without('class') }}>
+  <div class="flex">
+    <div class="ml-3 my-auto flex-1">
+      <div role="{% if type == 'error' %}alert{% else %}complementary{% endif %}">
+        {% block default %}{% endblock default %}
+      </div>
+    </div>
+    {% if dismissable %}
+      <div class="ml-auto mr-4 pl-3 cursor-pointer" @click.stop="close()">
+        {{ include ('castle_components:icon', { 'name': 'x' }, with_context=false ) }}
+      </div>
+    {% endif %}
+  </div>
+</div>

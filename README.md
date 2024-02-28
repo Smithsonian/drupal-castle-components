@@ -2,6 +2,9 @@
 
 Drupal component library using TailwindCSS and AlpineJS
 
+> [!WARNING]  
+> This module is under active development, and is not ready to be used in production.
+
 ## Install
 
 Install as any Drupal module. It's recommended to use composer.
@@ -68,11 +71,25 @@ Once configured you can use components in your Drupal theme using Twig [embed](h
 or Twig [include](https://twig.symfony.com/doc/3.x/tags/include.html)
 
 ```twig
-{{ include ('castle_components:icon', { 'name': 'download' } ) }}
+{{ include ('castle_components:icon', { 'name': 'download' }, with_context=false ) }}
 ```
 
-## VSCode
+## AlpineJS
 
-see: https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets
+Many of the Castle components use AlpineJS for interactivity, transitions, and event handling.
+
+You'll want to add the following style to you're HTML head to prevent unstyled components appearing before Alpine is initialized.
+
+```html
+<style>
+  [x-cloak] {
+    display: none !important;
+  }
+</style>
+```
+
+## Visual Studio Code
+
+For autocomplete helpers copy the `.vscode/castle-components.code-snippets` Snippets file from the module directory into your VSCode project root. More information about [creating your own snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets).
 
 ## Development

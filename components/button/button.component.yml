@@ -23,7 +23,7 @@ props:
         - small
         - medium
         - large
-      default: button
+      default: medium
     label:
       type: string
       title: label
@@ -40,11 +40,12 @@ props:
     utilities:
       type: array
       title: Utility classes
-      description: Additional utility classes to add (or override) on the button.
+      description: Additional utility classes to add (or override).
       items:
         type: string
+      examples: [['bg-accent-500', 'text-neutral-100']]
 slots:
-  content:
+  default:
     type: string
-    title: Button content
+    title: Button default content
     description: The button text or other content.

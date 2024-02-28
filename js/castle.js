@@ -1,4 +1,4 @@
-// Entry point for the project.
+// Entry point for the Castle Components project.
 import ui from '@alpinejs/ui'
 import collapse from '@alpinejs/collapse'
 import focus from '@alpinejs/focus'
@@ -9,11 +9,7 @@ import Alpine from 'alpinejs'
 // Alpine plugins.
 Alpine.plugin([ui, collapse, focus, intersect, persist])
 
-import clipboard from '../components/clipboard/component'
-import themeSwitcher from '../components/theme_switcher/component'
 document.addEventListener('alpine:init', () => {
-  Alpine.data('clipboard', clipboard)
-  Alpine.data('themeSwitcher', themeSwitcher)
   // Stores
   Alpine.store('theme', {
     mode: Alpine.$persist(''),
