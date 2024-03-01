@@ -1,8 +1,8 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
-name: Drawer
+name: Dialog
 status: experimental
 group: Patterns
-description: An off-canvas container element.
+description: A dialog box.
 props:
   type: object
   required:
@@ -13,26 +13,12 @@ props:
     title:
       type: string
       title: Title
-      description: The visible drawer title.
-    side:
-      type: string
-      title: Side
-      description: The side of the screen the drawer will appear on.
-      enum:
-        - left
-        - right
-        - top
-        - bottom
-      default: right
+      description: The visible dialog title.
     event:
       type: string
       title: Event name
       description: The name of the event listener that toggles drawer visibility.
       examples: ['toggle-drawer', 'toggle-nav']
-    fullscreen:
-      type: boolean
-      title: Full screen
-      description: The drawer should take up the entire viewport.
     utilities:
       type: array
       title: Utility classes
@@ -40,9 +26,12 @@ props:
       items:
         type: string
 slots:
+  header:
+    type: string
+    title: Dialog header content
   default:
     type: string
-    title: Default drawer content
+    title: Default dialog content
   footer:
     type: string
     title: Footer content and actions
