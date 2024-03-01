@@ -37,6 +37,10 @@ props:
         - accent
         - transparent
       default: primary
+    event:
+      type: string
+      title: Event name
+      description: The name of the event to emit when the button is clicked.
     utilities:
       type: array
       title: Utility classes

@@ -1,0 +1,130 @@
+{% apply spaceless %}
+{% set classes = ['fixed', 'w-full'] %}
+{% set side = side|default('right') %}
+{% set opposite = 'left' %}
+{% if side == 'top' %}
+  {% set opposite = 'bottom' %}
+  {% set classes = classes|merge(['inset-x-0', 'top-0']) %}
+  {% if fullscreen %}
+    {% set classes = classes|merge(['h-full']) %}
+  {% else %}
+    {% set classes = classes|merge(['max-h-lg']) %}
+  {% endif %}
+  {% set transitions %}
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="-translate-y-full opacity-0"
+    x-transition:enter-end="translate-y-0 opacity-100"
+    x-transition:leave="transition ease-in duration-300"
+    x-transition:leave-start="translate-y-0 opacity-100"
+    x-transition:leave-end="-translate-y-full opacity-0"
+  {% endset %}
+{% endif %}
+{% if side == 'right' %}
+  {% set opposite = 'left' %}
+  {% set classes = classes|merge(['inset-y-0', 'right-0']) %}
+  {% if fullscreen %}
+    {% set classes = classes|merge(['h-full']) %}
+  {% else %}
+    {% set classes = classes|merge(['max-w-lg']) %}
+  {% endif %}
+  {% set transitions %}
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="translate-x-full opacity-0"
+    x-transition:enter-end="translate-x-0 opacity-100"
+    x-transition:leave="transition ease-in duration-300"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="translate-x-full opacity-0"
+  {% endset %}
+{% endif %}
+{% if side == 'bottom' %}
+  {% set opposite = 'top' %}
+  {% set classes = classes|merge(['inset-x-0', 'bottom-0']) %}
+  {% if fullscreen %}
+    {% set classes = classes|merge(['h-full']) %}
+  {% else %}
+    {% set classes = classes|merge(['max-h-lg']) %}
+  {% endif %}
+  {% set transitions %}
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="translate-y-full opacity-0"
+    x-transition:enter-end="translate-y-0 opacity-100"
+    x-transition:leave="transition ease-in duration-300"
+    x-transition:leave-start="translate-y-0 opacity-100"
+    x-transition:leave-end="translate-y-full opacity-0"
+  {% endset %}
+{% endif %}
+{% if side == 'left' %}
+  {% set opposite = 'right' %}
+  {% set classes = classes|merge(['inset-y-0', 'left-0']) %}
+  {% if fullscreen %}
+    {% set classes = classes|merge(['w-full']) %}
+  {% else %}
+    {% set classes = classes|merge(['max-w-lg']) %}
+  {% endif %}
+  {% set transitions %}
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="-translate-x-full opacity-0"
+    x-transition:enter-end="translate-x-0 opacity-100"
+    x-transition:leave="transition ease-in duration-300"
+    x-transition:leave-start="translate-x-0 opacity-100"
+    x-transition:leave-end="-translate-x-full opacity-0"
+  {% endset %}
+{% endif %}
+{% set panelClasses = [
+    'h-full', 
+    'flex', 
+    'flex-col', 
+    'justify-between',
+    'bg-neutral-50', 
+    'dark:bg-neutral-950',
+    'shadow-lg',
+    'overflow-y-auto'
+  ]
+%}
+{% if utilities is defined %}
+  {% set panelClasses = castle_merge_utility_classes(utilities, panelClasses) %}
+{% endif %}
+<div x-data="{ open: false }" {{ attributes.addClass('flex justify-center') }}>
+  <div
+      x-dialog
+      x-model="open"
+      @{{ event }}.window="open = !open"
+      style="display: none"
+      class="fixed inset-0 overflow-hidden castle-z-max"
+  >
+    {# Overlay #}
+    <div x-dialog:overlay x-transition.opacity class="fixed w-full h-full transition duration-300 pointer-events-none bg-neutral-900/50 dark:bg-neutral-600/50 backdrop-blur-sm"></div>
+    {# Panel #}
+    <div class="{{ classes|join(' ') }}">
+      <div
+        x-dialog:panel
+        class="h-full w-full"
+        {{ transitions}}
+      >
+        <div class="{{ panelClasses|join(' ')}}">
+          <div class="absolute {{ opposite }}-0 p-4">
+            <button type="button" @click="$dialog.close()" class="p-2 m-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2">
+              <span class="sr-only">Close {{ title ?? 'Panel' }}</span>
+              {{ include ('castle_components:icon', { 'name': 'x' }, with_context=false ) }}
+            </button>
+          </div>
+          
+          {# Content #}
+          <div class="p-4 md:p-6 lg:p-8 xl:p-12">
+            {% if title and title|trim %}
+              <h2 x-dialog:title class="text-3xl font-bold">{{ title }}</h2>
+            {% endif %}
+            <div class="mt-4 flex-1">
+              {% block default %}{% endblock default%}
+            </div>
+          </div>
+          {# Footer #}
+          <div class="p-4 flex justify-end space-x-2 bg-gray-50">
+            {% block footer %}{% endblock footer%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endapply %}

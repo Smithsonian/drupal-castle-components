@@ -23,6 +23,23 @@
 			"$2"
 		],
 	},
+	"castle_components:drawer": {
+		"scope": "twig",
+		"prefix": "drawer",
+		"body": [
+			"{% embed 'castle_components:drawer' with { side: 'left', fullscreen: true, event: 'toggle-menu', title: 'Menu' } %}",
+			"  {% block default %}",
+			"    <nav>",
+			"		   <a href=\"/\">Home</a>",
+			"    </nav>",
+			"  {% endblock %}",
+			"  {% block footer %}",
+			"    This is footer content",
+			"  {% endblock footer %}",
+			"{% endembed %}",
+			"$2"
+		],
+	},
 	"castle_components:heading": {
 		"scope": "twig",
 		"prefix": "heading",

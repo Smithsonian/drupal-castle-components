@@ -1,0 +1,46 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Drawer
+status: experimental
+group: Patterns
+description: An off-canvas container element.
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    title:
+      type: string
+      title: Title
+      description: The visible drawer title.
+    side:
+      type: string
+      title: Side
+      description: The side of the screen the drawer will appear on.
+      enum:
+        - left
+        - right
+        - top
+        - bottom
+      default: right
+    event:
+      type: string
+      title: Event name
+      description: The name of the event listener that toggles drawer visibility.
+      examples: ['toggle-drawer', 'toggle-nav']
+    fullscreen:
+      type: boolean
+      title: Full screen
+      description: The drawer should take up the entire viewport.
+    utilities:
+      type: array
+      title: Utility classes
+      description: "Additional utility classes to add (or override) on the drawer panel."
+      items:
+        type: string
+slots:
+  default:
+    type: string
+    title: Default drawer content
+  footer:
+    type: string
+    title: Footer content and actions

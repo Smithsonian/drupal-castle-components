@@ -8,7 +8,6 @@ props:
   properties:
     attributes:
       type: Drupal\Core\Template\Attribute
-  # TODO: Add "elevation" prop used to set the shadow depth of the card.
 slots:
   media:
     type: string

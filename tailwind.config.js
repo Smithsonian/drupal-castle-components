@@ -10,7 +10,7 @@ module.exports = {
   safelist: [
     'container',
     { pattern: /^[wh]-/ },
-    { pattern: /^(top|bottom|left|right|inset|-top|-bottom|-left|-right|-inset)-/ },
+    { pattern: /^(top|bottom|left|right|inset)-/ },
     { 
       pattern: /^(bg|text|border)-(primary|secondary|accent|surface)-/, 
       variants: ['dark', 'hover', 'focus', 'dark:hover', 'dark:focus'],
