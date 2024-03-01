@@ -1,0 +1,25 @@
+{% apply spaceless %}
+  {% set classes = ['px-2', 'md:px-0'] %}
+  {% if utilities is defined %}
+    {% set classes = castle_merge_utility_classes(utilities, classes) %}
+  {% endif %}
+  {% set attributes = attributes.addClass(classes).setAttribute('role', 'navigation').setAttribute('aria-label', 'Breadcrumb') %}
+  {% if list|length > 0 %}
+    <nav {{ attributes }}>
+      <ol class="flex items-center space-x-6 pl-0 overflow-x-auto">
+        {% for item in list %}
+          <li class="{% if not loop.first %}flex items-center{% endif %}">
+            {% if not loop.first %}<div>/</div>{% endif %}
+            <div class="text-base{% if not loop.first %} ml-4{% endif %}">
+              {% if item.url %}
+                <a class="whitespace-nowrap truncate" href="{{ item.url }}">{{ item.text }}</a>
+              {% else %}
+                <span class="whitespace-nowrap text-ellipsis truncate">{{ item.text }}</span>
+              {% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ol>
+    </nav>
+  {% endif %}
+{% endapply %}

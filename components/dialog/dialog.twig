@@ -53,7 +53,8 @@
             {% set buttonAttributes = create_attribute() %}
             {% embed 'castle_components:button' with { 
               attributes: buttonAttributes.setAttribute('@click', '$dialog.close()'), 
-              variant: 'primary' 
+              variant: 'primary',
+              utilities: ['mr-2'],
             } only %}
               {% block default %}
                 Close
