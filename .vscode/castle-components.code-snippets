@@ -94,18 +94,18 @@
 			"$2"
 		],
 	},
-	"castle_components:alert": {
+	"castle_components:status_message": {
 		"scope": "twig",
 		"prefix": "status_message",
 		"body": [
 			"{% embed 'castle_components:status_message' with {",
-			"		variant: 'success',",
-			"		aria_label: 'Success message',",
+			"		variant: 'status',",
+			"		aria_label: 'Status message',",
 			"		dismissable: true",
 			"	}", 
 			"%}",
 			"	{% block default %}",
-			"			<p>Success! It worked.</p>",
+			"			<p>Success! It this is the status.</p>",
 			"	{% endblock default %}",
 			"{% endembed %}",
 			"$2"

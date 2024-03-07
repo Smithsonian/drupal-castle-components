@@ -7,7 +7,14 @@
   {% if as and as|lower in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] %}
     {% set tag = as %}
   {% endif %}
-  {# TODO: Add sizes #}
+  {# Prop: size #}
+  {% if size == 'large' %}
+    {% set classes = classes|merge(['text-4xl']) %}
+  {% elseif size == 'small' %}
+    {% set classes = classes|merge(['text-xl']) %}
+  {% else %}
+    {% set classes = classes|merge(['text-2xl']) %}
+  {% endif %}
   <{{ tag }} {{ attributes.addClass(classes) }}">
     {% block default %}{% endblock default %}
   </{{ tag }}>

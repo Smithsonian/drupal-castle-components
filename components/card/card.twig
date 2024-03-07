@@ -4,6 +4,9 @@
     'dark:border-neutral-700'
   ] 
   %}
+  {% if utilities is defined %}
+    {% set classes = castle_merge_utility_classes(utilities, classes) %}
+  {% endif %}
   <div {{ attributes.addClass(classes) }}>
     {% block media %}{% endblock media %}
     {% block header %}{% endblock header %}

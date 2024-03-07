@@ -1,0 +1,31 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Teaser
+status: experimental
+description: A horizontal content container with options for an end user to take action.
+group: Patterns
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    utilities:
+      type: array
+      title: Utility classes
+      description: Additional utility classes to add (or override).
+      items:
+        type: string
+slots:
+  media:
+    type: string
+    title: Teaser media
+    description: Image or other media representing the card.
+  header:
+    type: string
+    title: Teaser header
+  body:
+    type: string
+    title: Teaser body
+  footer:
+    type: string
+    title: Teaser footer
+    
