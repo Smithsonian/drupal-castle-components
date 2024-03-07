@@ -1,7 +1,7 @@
 '$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
-name: Card
+name: Teaser
 status: experimental
-description: A flexible content container with options for an end user to take action.
+description: A horizontal content container with options for an end user to take action.
 group: Patterns
 props:
   type: object
@@ -17,15 +17,15 @@ props:
 slots:
   media:
     type: string
-    title: Card media
+    title: Teaser media
     description: Image or other media representing the card.
   header:
     type: string
-    title: Card header
+    title: Teaser header
   body:
     type: string
-    title: Card body
+    title: Teaser body
   footer:
     type: string
-    title: Card footer
+    title: Teaser footer
     

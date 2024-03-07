@@ -15,11 +15,45 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"castle_components:breadcrumb": {
+		"scope": "twig",
+		"prefix": "breadcrumb",
+		"body": [
+			"{{ include ('castle_components:breadcrumb', { 'list': breadcrumb, utilities: ['my-4'] }, with_context=false) }}",
+			"$2"
+		],
+	},
 	"castle_components:clipboard": {
 		"scope": "twig",
 		"prefix": "clipboard",
 		"body": [
 			"{{ include ('castle_components:clipboard', { 'text': 'This is copied text!' }, with_context=false ) }}",
+			"$2"
+		],
+	},
+	"castle_components:card": {
+		"scope": "twig",
+		"prefix": "card",
+		"body": [
+			"{% embed 'castle_components:card' only %}",
+			"  {% block media %}",
+			"    <img src=\"https://placehold.co/600x400\" />",
+			"  {% endblock media %}",
+			"  {% block header %}",
+			"    <h4 class=\"text-xl font-semibold p-2\">Card Title</h4>",
+			"  {% endblock header %}",
+			"  {% block body %}",
+			"    <p class=\"p-2\">The card body.</p>",
+			"  {% endblock body %}",
+			"{% endembed %}",
+			"$2"
+		],
+	},
+	"castle_components:divider": {
+		"scope": "twig",
+		"prefix": "divider",
+		"body": [
+			"{{ include ('castle_components:divider', { 'label': 'Read More' }, with_context=false ) }}",
 			"$2"
 		],
 	},
@@ -60,18 +94,18 @@
 			"$2"
 		],
 	},
-	"castle_components:alert": {
+	"castle_components:status_message": {
 		"scope": "twig",
 		"prefix": "status_message",
 		"body": [
 			"{% embed 'castle_components:status_message' with {",
-			"		variant: 'success',",
-			"		aria_label: 'Success message',",
+			"		variant: 'status',",
+			"		aria_label: 'Status message',",
 			"		dismissable: true",
 			"	}", 
 			"%}",
 			"	{% block default %}",
-			"			<p>Success! It worked.</p>",
+			"			<p>Success! It this is the status.</p>",
 			"	{% endblock default %}",
 			"{% endembed %}",
 			"$2"

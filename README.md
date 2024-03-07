@@ -1,6 +1,7 @@
 # Castle Components
 
-Drupal component library using TailwindCSS and AlpineJS
+Drupal component library using TailwindCSS and AlpineJS.
+View the [online documentation](https://components.saam.media/).
 
 > [!WARNING]  
 > This module is under active development, and is not ready to be used in production.

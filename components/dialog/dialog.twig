@@ -1,0 +1,68 @@
+{% apply spaceless %}
+  {% set panelClasses = [ 
+    'relative',
+    'max-w-xl',
+    'w-full',
+    'bg-neurtal-50',
+    'dark:bg-neutral-950',
+    'text-neutral-900',
+    'dark:text-neutral-100',
+    'rounded-md',
+    'shadow-lg',
+    'overflow-y-auto',
+    ] 
+  %}
+  {% if utilities is defined %}
+    {% set panelClasses = castle_merge_utility_classes(utilities, panelClasses) %}
+  {% endif %}
+  <div
+    x-data="{ open: false }"
+    x-dialog
+    x-model="open"
+    @{{ event }}.window="open = !open"
+    class="fixed inset-0 overflow-y-auto z-40"
+    style="display: none;"
+    :initial-focus="$refs.body"
+    x-transition:enter="ease-out duration-300"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="ease-in duration-200"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+  >
+    {# Overlay #}
+    <div x-dialog:overlay x-transition.opacity class="fixed w-full h-full transition duration-300 pointer-events-none bg-neutral-900/50 dark:bg-neutral-600/50 backdrop-blur-sm"></div>
+    {# Panel #}
+    <div class="relative min-h-screen flex items-center justify-center p-2">
+      {# Note: The "open" attribute controls visibility when using native "dialog" element #}
+      <dialog x-dialog:panel :open="open" @click.away="$dialog.close()" class="{{ panelClasses|join(' ') }}">
+        {# Header slot #}
+        <header class="flex flex-col relative items-end px-2 py-4 text-2xl">
+          {% block header %}{% endblock %}
+        </header>
+        {# Default slot #}
+        <section x-ref="body" role="dialog" class="relative h-auto text-left p-4">
+          {% if title and title|trim %}
+            <h2 x-dialog:title class="text-3xl font-bold">{{ title }}</h2>
+          {% endif %}
+          {% block default %}{% endblock default %}
+        </section>
+        {# Footer slot #}
+        <footer class="flex justify-end space-x-2 px-2 py-4">
+          {% block footer %}
+            {% set buttonAttributes = create_attribute() %}
+            {% embed 'castle_components:button' with { 
+              attributes: buttonAttributes.setAttribute('@click', '$dialog.close()'), 
+              variant: 'primary',
+              utilities: ['mr-2'],
+            } only %}
+              {% block default %}
+                Close
+              {% endblock default %}
+            {% endembed %}
+          {% endblock footer %}
+        </footer>
+      </dialog>
+    </div>
+  </div>
+{% endapply %}
