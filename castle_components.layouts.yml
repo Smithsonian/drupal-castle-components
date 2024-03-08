@@ -1,0 +1,27 @@
+castle_components_castle_grid:
+  label: 'Castle Grid'
+  category: 'Castle components Layouts'
+  path: layouts/castle_grid
+  template: castle-grid
+  library: castle_components/tailwind
+  regions:
+    default:
+      label: Default content
+  default_region: default
+  icon_map:
+    - [square_one, square_two]
+    - [square_three, square_four]
+castle_components_castle_stack:
+  label: 'Castle Stack'
+  category: 'Castle components Layouts'
+  path: layouts/castle_stack
+  template: castle-stack
+  library: castle_components/tailwind
+  regions:
+    default:
+      label: Default content
+  default_region: default
+  icon_map:
+    - [square_one]
+    - [square_two]
+    - [square_three]

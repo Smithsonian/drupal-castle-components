@@ -1,0 +1,7 @@
+views.style.castle_components_castle_grid:
+  type: views_style
+  label: 'Castle Grid'
+  mapping:
+    wrapper_class:
+      type: string
+      label: 'Wrapper class'

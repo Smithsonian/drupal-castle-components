@@ -61,7 +61,7 @@
 		"scope": "twig",
 		"prefix": "drawer",
 		"body": [
-			"{% embed 'castle_components:drawer' with { side: 'left', fullscreen: true, event: 'toggle-menu', title: 'Menu' } %}",
+			"{% embed 'castle_components:drawer' with { side: 'left', fullscreen: true, event: 'toggle-menu', title: 'Menu' } only %}",
 			"  {% block default %}",
 			"    <nav>",
 			"		   <a href=\"/\">Home</a>",
