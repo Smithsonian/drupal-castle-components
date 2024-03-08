@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a "Castle Grid" view.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ *
+ * @see template_preprocess_views_style_castle_components_castle_grid()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if title %}
+{% embed 'castle_components:heading' with { as: 'h3' } %}
+  {% block default %}
+    {{ title}}
+  {% endblock default %}
+{% endembed %}
+{% endif %}
+
+{% embed 'castle_components:grid' with { 
+  xs: options.columns_xs,
+  sm: options.columns_sm,
+  md: options.columns_md,
+  lg: options.columns_lg,
+  xl: options.columns_xl,
+  utilites: options.custom_classes
+} %}
+  {% block default %}
+    {% for row in rows %}
+      <div{{ row.attributes }}>
+        {{ row.content }}
+      </div>
+    {% endfor %}
+  {% endblock default %}
+{% endembed %}

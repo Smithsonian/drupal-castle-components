@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display Castle Grid layout.
+ *
+ * Available variables:
+ * - content: The content for this layout.
+ * - attributes: HTML attributes for the layout wrapper.
+ *
+ * @ingroup themeable
+ */
+#}
+{% if content %}
+  <div{{ attributes }}>
+    {% embed 'castle_components:grid' with { attributes: region_attributes.default } %}
+      {% block default %}
+        {% if content.default %}
+          {{ content.default }}
+        {% endif %}
+      {% endblock default %}
+    {% endembed %}
+  </div>
+{% endif %}
