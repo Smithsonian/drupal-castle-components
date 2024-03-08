@@ -22,14 +22,13 @@
   {% endblock default %}
 {% endembed %}
 {% endif %}
-
 {% embed 'castle_components:grid' with { 
   xs: options.columns_xs,
   sm: options.columns_sm,
   md: options.columns_md,
   lg: options.columns_lg,
   xl: options.columns_xl,
-  utilites: options.custom_classes
+  utilities: options.utility_classes
 } %}
   {% block default %}
     {% for row in rows %}

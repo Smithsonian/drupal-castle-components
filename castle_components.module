@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Template\Attribute;
+use Drupal\Component\Utility\Html;
 
 /**
  * @file
@@ -21,6 +22,14 @@ function template_preprocess_views_style_castle_components_castle_grid(array &$v
   $view = $variables['view'];
   $rows = $variables['rows'];
   $variables['options'] = $view->style_plugin->options;
+  $utilities = [];
+  if (isset($variables['options']['utility_classes'])) {
+    $classes = explode(' ', $variables['options']['utility_classes']);
+    foreach ($classes as &$class) {
+      $utilities[] = Html::cleanCssIdentifier($class);
+    }
+  }
+  $variables['options']['utility_classes'] = $utilities;
   foreach ($rows as $key => $row) {
     $variables['rows'][$key] = [];
     $variables['rows'][$key]['content'] = $row;

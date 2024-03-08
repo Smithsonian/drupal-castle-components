@@ -29,8 +29,12 @@ final class CastleGrid extends StylePluginBase {
    */
   protected function defineOptions(): array {
     $options = parent::defineOptions();
-    $options['columns'] = ['default' => '4'];
-    $options['custom_classes'] = ['default' => ''];
+    $options['columns_xs'] = ['default' => '1'];
+    $options['columns_sm'] = ['default' => '1'];
+    $options['columns_md'] = ['default' => '2'];
+    $options['columns_lg'] = ['default' => '4'];
+    $options['columns_xl'] = ['default' => '4']; 
+    $options['utility_classes'] = ['default' => ''];
     return $options;
   }
 
@@ -55,32 +59,12 @@ final class CastleGrid extends StylePluginBase {
         $form["columns_{$size}"]['#options'][$number] = $number;
       }
     }
-    $form['custom_classes'] = [
-      '#title' => $this->t('Custom classes'),
+    $form['utility_classes'] = [
+      '#title' => $this->t('Utility classes'),
       '#description' => $this->t('Additional classes to add to the container element. Separated by a space.'),
       '#type' => 'textfield',
-      '#default_value' => $this->getCustomClasses(),
+      '#default_value' => '',
     ];
-  }
-
-  /**
-   * Return the custom classes.
-   *
-   * @return string
-   *   A space-delimited string of classes.
-   */
-  public function getCustomClasses() {
-    if (isset($this->options['custom_classes'])) {
-      $items = $this->options['custom_classes'];
-      $classes = explode(' ', $items);
-      foreach ($classes as &$class) {
-        $class = Html::cleanCssIdentifier($class);
-      }
-      // return implode(' ', $classes);
-      return $classes;
-    }
-    // return '';
-    return [];
   }
 
 }
