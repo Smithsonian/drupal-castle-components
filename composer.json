@@ -2,7 +2,7 @@
   "name": "smithsonian/castle_components",
   "description": "Drupal component library using TailwindCSS and AlpineJS.",
   "type": "drupal-module",
-  "homepage": "https://github.com/Smithsonian/castle-components",
+  "homepage": "https://github.com/Smithsonian/drupal-castle-components",
   "authors": [
     {
       "name": "Eric Pugh",
@@ -11,8 +11,8 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/Smithsonian/castle-components/issues",
-    "source": "https://github.com/Smithsonian/castle-components"
+    "issues": "https://github.com/Smithsonian/drupal-castle-components/issues",
+    "source": "https://github.com/Smithsonian/drupal-castle-components"
   },
   "license": "MIT",
   "minimum-stability": "dev",
