@@ -1,5 +1,6 @@
 // Entry point for the Castle Components project.
-import ui from '@alpinejs/ui'
+import tabs from '../node_modules/@alpinejs/ui/src/tabs'
+import dialog from '../node_modules/@alpinejs/ui/src/dialog'
 import collapse from '@alpinejs/collapse'
 import focus from '@alpinejs/focus'
 import intersect from '@alpinejs/intersect'
@@ -7,7 +8,7 @@ import persist from '@alpinejs/persist'
 import Alpine from 'alpinejs'
 
 // Alpine plugins.
-Alpine.plugin([ui, collapse, focus, intersect, persist])
+Alpine.plugin([dialog, tabs, collapse, focus, intersect, persist])
 
 document.addEventListener('alpine:init', () => {
   // Stores

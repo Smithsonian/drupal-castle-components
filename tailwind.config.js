@@ -12,7 +12,7 @@ module.exports = {
     { pattern: /^[wh]-/ },
     { pattern: /^(top|bottom|left|right|inset)-/ },
     { 
-      pattern: /^(bg|text|border)-(primary|secondary|accent|surface)-/, 
+      pattern: /^(bg|text|border)-(primary|secondary|accent|surface|neutral)-/, 
       variants: ['dark', 'hover', 'focus', 'dark:hover', 'dark:focus'],
     },
     { pattern: /^(m|mt|mb|mr|ml|mx|my|p|pt|pb|pr|pl|px|py)-/ },

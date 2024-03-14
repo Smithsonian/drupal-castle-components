@@ -29,14 +29,18 @@
   {% endif %}
   {% if type %}
     {% set attributes = attributes.setAttribute('type', type) %}
+  {% else %}
+    {% set attributes = attributes.setAttribute('type', 'button') %}
   {% endif %}
   {% if utilities is defined %}
     {% set classes = castle_merge_utility_classes(utilities, classes) %}
   {% endif %}
-  {% set as = 'button' %}
+  {# Prop: href #}
   {% if href is defined %}
     {% set as = 'a' %}
     {% set attributes = attributes.setAttribute('href', href) %}
+  {% else %}
+    {% set as = 'button' %}
   {% endif %}
   <{{ as }}
     {{ attributes.addClass(classes) }}

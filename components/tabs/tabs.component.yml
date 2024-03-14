@@ -1,0 +1,51 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: Tabs
+status: experimental
+group: Layout
+description: A layout element to separate content into tabbed containers.
+props:
+  type: object
+  properties:
+    attributes:
+      type: Drupal\Core\Template\Attribute
+    utilities:
+      type: array
+      title: Utility classes
+      description: "Additional utility classes to add (or override)."
+      items:
+        type: string
+    variant:
+      type: string
+      title: Variant
+      enum:
+        - tabs
+        - pills
+      default: tabs
+    tabs:
+      type: array
+      items:
+        type: object
+        properties:
+          label:
+            type: string
+            title: Title
+          is_active:
+            type: boolean
+            title: Is Active
+          icon:
+            type: string
+            title: Icon Name
+            description: "The icon to display in the tab"
+          count: 
+            type: number
+            title: Count
+            description: "The count to display in the tab"
+          content:
+            type: string
+            title: Content
+            description: "The content to display in the tab panel"
+            default: ""
+slots:
+  default:
+    type: string
+    title: Tab child elements
